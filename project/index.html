@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Colors</title>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <a-scene background="color: #7DFFF8">
+        <a-entity id="camera" position="0 1.5 8">
+            <a-camera>
+                <a-cursor></a-cursor>
+            </a-camera>
+        </a-entity>
+        <a-entity id="game">
+            <!--<div>   </div>-->
+        </a-text>
+            <a-text id="answer" value="Click the word that matches the color of the ball" color="black" visible=true position="0 -1 -5" font="monoid" width="8" align="center" visible="true"></a-text>
+            <a-sphere onclick="start()" id="start" position="0 2 4" radius="1.5" color="green">
+                <a-text value="Click to Start!" color="black" visible=true position="0 0 1.8" font="monoid" width="4" align="center"></a-text>
+                <a-animation attribute="position" begin="0" dur="1000" easing="linear" from="0 1.8 4" to="0 2 4" direction="alternate" repeat="indefinite"></a-animation>
+            </a-sphere>
+
+            <a-sphere id="colorSphere" position="0 3 -6" radius="1.5" color="purple">
+                <a-animation attribute="position" begin="0" dur="1000" easing="linear" from="0 2.5 -4" to="0 2.8 -4" direction="alternate" repeat="indefinite"></a-animation>
+            </a-sphere>
+            <a-box onclick="checkA()" id="optionA" color="#9AE866" depth="0.5" height="0.5" width="1" position="-2 1 -2.5" value="color">
+                <a-text id="textA" value="color" color="black" visible=true position="0 0 0.5" font="monoid"></a-text>
+            </a-box>
+            <a-box onclick="checkB()" id="optionB" color="#9AE866" depth="0.5" height="0.5" width="1" position="0 1 -2.5" value="color">
+                <a-text id="textB" value="color" color="black" visible=true position="-0.25 0 0.5" font="monoid"></a-text>
+            </a-box>
+            <a-box onclick="checkC()" id="optionC" color="#9AE866" depth="0.5" height="0.5" width="1" position="2 1 -2.5" value="color">
+                <a-text id="textC" value="color" color="black" visible=true position="-0.4 0 0.5" font="monoid"></a-text>
+            </a-box>
+            <a-entity id="next" visible="false">
+                <a-sphere onclick="reset()" position="0 0.5 -1" radius="0.3" color="green">
+                    <a-text value="Correct! Next color!" color="black" position="0 0.15 0.3" wrapCount="8" font="monoid" width="1.5" align="center"></a-text>
+                    <!--<a-animation attribute="position" begin="0" dur="1000" easing="linear" from="0 1.8 4" to="0 2 4" direction="alternate" repeat="indefinite"></a-animation>-->
+                </a-sphere>
+            </a-entity>
+        </a-entity>
+        <a-text id="win" value="Congratulations! You really know your colors!" color="black" visible="false" position="0 -1 -5" font="monoid" width="8" align="center" visible="true">
+             <a-animation attribute="position" begin="0" dur="1000" easing="linear" from="0 -1 -5" to="0 -1 -3" direction="alternate" repeat="indefinite"></a-animation>
+        </a-text>
+    </a-scene>
+</body>
+
+</html>
